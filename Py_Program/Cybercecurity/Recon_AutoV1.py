@@ -10,7 +10,7 @@ def reco():
 
     ti = int(input("Insert mode:\nFast: 1\nnormal: 2\nAnonymous for firewall: 3\n--> "))
 
-    nmap = ["sudo","nmap", "-sV", ip]
+    nmap = ["nmap", "-sV", ip]
 
 
     if ti == 1:
@@ -37,9 +37,9 @@ if not nmh:
     confirm = input("Install Nmap? Y/N: ").strip().upper()
 
     if confirm == "Y":
-        subprocess.run(["sudo", "pacman", "-S", "nmap", "--noconfirm"])
+        subprocess.run(["dnf", "install", "nmap", "-y"])
 
-    if confirm == "N":
+    elif confirm == "N":
         print("Install canceled")
         sys.exit()
     else:
